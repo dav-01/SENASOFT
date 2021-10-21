@@ -1,0 +1,12 @@
+
+
+<div class="form_parking">
+    <h1>Asignar zona de parqueo</h1>
+    <%= simple_form_for @parking do |f| %>
+      <%= f.input :zona_parqueo, label: 'Zona de parqueo' %>
+      <div class="boton_enviar">
+        <%= f.button :submit, "Actualizar producto"%>
+      </div>
+  
+    <% end %>
+  </div>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  placa: MyString
+  cedula: MyString
+  fecha: 2021-10-20
+  nombre: MyString
+  token: MyString
+
+two:
+  placa: MyString
+  cedula: MyString
+  fecha: 2021-10-20
+  nombre: MyString
+  token: MyString

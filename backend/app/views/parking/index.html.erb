@@ -1,0 +1,29 @@
+
+
+
+<h1>
+    Zonas de parqueo
+</h1>
+<hr>
+ <table class="table table-dark table-striped">
+   <tr>
+     <thead class="table-dark">
+       <th scope="col">Placa</th>
+       <th scope="col">Cedula</th>
+       <th scope="col">Fecha</th>
+       <th scope="col">Nombre</th>
+       <th scope="col">Zona de parqueo</th>
+       <th scope="col">Accion</th>
+     </thead>
+   </tr>
+   <% @parkings.each do |f| %>
+   <tr>
+     <td><%= f.placa %></td>
+     <td><%= f.cedula %></td>
+     <td><%= f.fecha %></td>
+     <td><%= f.nombre %></td>
+     <td><%= f.zona_parqueo %></td>
+     <td><%= link_to "Asignar zona de parqueo", edit_parking_path(f)%></td>
+   </tr>
+   <% end %>
+ </table>
