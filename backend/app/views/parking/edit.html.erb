@@ -5,8 +5,9 @@
     <%= simple_form_for @parking do |f| %>
       <%= f.input :zona_parqueo, label: 'Zona de parqueo' %>
       <div class="boton_enviar">
-        <%= f.button :submit, "Actualizar producto"%>
-      </div>
-  
+        <%= f.button :submit, "Asignar zona de parqueo"%>
+      </div> <br>
+        <%= link_to "Regresar", parking_index_path(f)%>
+      
     <% end %>
   </div>

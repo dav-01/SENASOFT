@@ -40,7 +40,7 @@ class ParkingController < ApplicationController
     private
 
     def parking_params
-      params.require(:parking).permit(:placa, :cedula, :fecha, :nombre, :zona_parqueo)
+      params.permit(:placa, :cedula, :fecha, :nombre, :zona_parqueo)
     end
 
 end
