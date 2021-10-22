@@ -7,7 +7,7 @@ import 'dart:async';
 class PushNotificationService {
   static FirebaseMessaging messaging =
       FirebaseMessaging.instance; //info firebase
-  static String token;
+  static String? token;
   //emitir msj (string)
   static StreamController<String> _messageStream =
       new StreamController.broadcast();

@@ -14,17 +14,17 @@ class HomeScreem extends StatelessWidget {
         future: traerInformacionApi(), //future
         builder: (context, AsyncSnapshot<List<Parking>> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            final parkings = snapshot.data;
+            final parkings = snapshot.data; 
             print(parkings); //PRIN
             return ListView.builder(
               itemCount: parkings?.length,
               itemBuilder: (BuildContext context, int index) {
-                final parking = parkings[index];
+                final parking = parkings![index];
                 return ListTile(
                   leading: Icon(Icons.person),
                   title: Text(parking.placa),
-                  subtitle: Text(parking.cedula),
-                  trailing: Icon(Icons.keyboard_arrow_right),
+                  subtitle: Text(parking.nombre),
+                  trailing: Text(parking.lugar),
                 );
               },
             );
@@ -34,8 +34,11 @@ class HomeScreem extends StatelessWidget {
         },
       ),
 
-
       // action button
+      bottomNavigationBar: BottomAppBar(
+        shape:  const CircularNotchedRectangle(),
+        child: Container(height: 50.0,),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
@@ -50,7 +53,7 @@ class HomeScreem extends StatelessWidget {
 
   //get 
   Future<List<Parking>> traerInformacionApi() async {
-  final url = Uri.parse('https://f997-2803-1800-51c0-f8d-3855-1279-7788-fce4.ngrok.io/parking');
+  final url = Uri.parse('https://ad59-2803-1800-51c4-894e-c88a-5c16-d87a-93f6.ngrok.io/parking.json');
   final response = await http.get(url);
   print(response);
   if (response.statusCode == 200) {
@@ -60,3 +63,4 @@ class HomeScreem extends StatelessWidget {
   }
   }
 
+  // este es es que funciona

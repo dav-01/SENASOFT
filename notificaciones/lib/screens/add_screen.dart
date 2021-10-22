@@ -1,16 +1,19 @@
+//import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:notificaciones/models/parking_model.dart';
 
 
 class AddScreen extends StatelessWidget {
+  
   //object
   final parqueo = new Parking();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Crear Comentario'),
+        title: Text('Solicitar ingreso'),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -25,8 +28,20 @@ class AddScreen extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'placa',
-                  prefixIcon: Icon(Icons.add),
+                  labelText: 'Nombre',
+                  prefixIcon: Icon(Icons.person),
+                ),
+                onChanged: (value) {
+                  parqueo.nombre = value;
+                },
+                maxLength: 20,
+              ),
+              SizedBox(height: 0.0),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Placa',
+                  prefixIcon: Icon(Icons.car_rental),
                 ),
                 onChanged: (value) {
                   parqueo.placa = value;
@@ -41,7 +56,7 @@ class AddScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.person),
-                  labelText: 'cedula',
+                  labelText: 'Cedula',
                 ),
               ),
               SizedBox(height: 15.0),
@@ -65,9 +80,9 @@ class AddScreen extends StatelessWidget {
     );
   }
 
-  Future<Parking> enviarDatos(Map json) async {
-    final url = Uri.parse('https://f997-2803-1800-51c0-f8d-3855-1279-7788-fce4.ngrok.io/parking');
-    final response = await http.post(url, body: json);
+  Future<Parking?> enviarDatos(Map json) async {
+    final url = Uri.parse('https://ad59-2803-1800-51c4-894e-c88a-5c16-d87a-93f6.ngrok.io/parking');
+    final response = await http.post(url,  body: json);
     print(response.body);
     if (response.statusCode == 200) {
       return parkingFromJson(response.body);
