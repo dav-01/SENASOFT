@@ -74,7 +74,7 @@ class AddScreen extends StatelessWidget {
 
   Future<Parqueo?> enviarDatos(Map json) async {
     print('dato: $json');
-    final url = Uri.parse('http://e0a1-2803-1800-51cf-4b69-bc1e-b05a-800b-b297.ngrok.io/parking');
+    final url = Uri.parse('https://5e5a-190-61-42-174.ngrok.io/parking');
     final response = await http.post(url, body: json);
 
     if (response.statusCode == 201) {
