@@ -12,12 +12,12 @@ class HomeScreem extends StatelessWidget {
       ),
       body: FutureBuilder(
         future: traerInformacionApi(), //future
-        builder: (context, AsyncSnapshot<List<Parking>?> snapshot) {
+        builder: (context, AsyncSnapshot<List<Parking>> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             final parkings = snapshot.data;
             print(parkings); //PRIN
             return ListView.builder(
-              itemCount: parkings!.length,
+              itemCount: parkings?.length,
               itemBuilder: (BuildContext context, int index) {
                 final parking = parkings[index];
                 return ListTile(
@@ -49,14 +49,14 @@ class HomeScreem extends StatelessWidget {
 }
 
   //get 
-  Future<List<Parking>?> traerInformacionApi() async {
-  final url = Uri.parse('https://b09c-2803-1800-5106-44d4-93eb-5bdb-3cc1-2f16.ngrok.io/parking');
+  Future<List<Parking>> traerInformacionApi() async {
+  final url = Uri.parse('https://f997-2803-1800-51c0-f8d-3855-1279-7788-fce4.ngrok.io/parking');
   final response = await http.get(url);
   print(response);
   if (response.statusCode == 200) {
     return parkingsFromJson(response.body);
-  } else {
-    return null;
+  } else{
+    return [];
   }
   }
 
