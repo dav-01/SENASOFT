@@ -13,20 +13,28 @@ String parkingToJson(List<Parking> data) => json.encode(List<dynamic>.from(data.
 
 class Parking {
     Parking({
+        this.nombre = '',
         this.placa = '',
         this.cedula = '',
+        this.lugar = '',
     });
 
+    String nombre;
     String placa;
     String cedula;
+    String lugar;
 
     factory Parking.fromJson(Map<String, dynamic> json) => Parking(
+        nombre: json["nombre"].toString(),
         placa: json["placa"],
         cedula: json["cedula"],
+        lugar: json["zona_parqueo"].toString(),
     );
 
     Map<String, dynamic> toJson() => {
+        "nombre": nombre,
         "placa": placa,
         "cedula": cedula,
+        "zona_parqueo": lugar,
     };
 }
