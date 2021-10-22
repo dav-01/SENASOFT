@@ -39,7 +39,7 @@ class ParkingController < ApplicationController
 
           fcm = FCM.new('AAAAVWV_sf4:APA91bF6LSzImSCSB_ACztu7KK1-nmiq5RmD2y-CaPvvNUcL1HyGG-jCyptTPVmPTu7qyvku4U8L_KQjcMDkyIpPjEflrLAjGn-poNuq7SEGujs1qOYo7DT0WXbeiPk9wsYJYcgDkvAW') # Find server_key on: your firebase console on web > tab general > web api key
 
-          registration_ids= ' fP-v2FDWT2WH18jbL-KNYp:APA91bGyJbOzDHtX2f5NHr-l8xRGBSQJYNIfrRcTK0_k562gavmhDwfVxCUOTDhjb9akNURaQxFiymJnG9ax27MZtFqPgjomUIL41N1G-3oQEayyN97HSMa8GaveZqJ8Nz6Fr85Ldcz3'
+          registration_ids= 'e8Jj5NhUS7CoVjAntxLHJL:APA91bHMuDQBoIL0tnBjHuhJsejh85rJ4r59_1nXSetbYidxVPEUuSbIfYOWlqk3xGopD1vJCqpwEFnrqq2J3GNDEqYb1uSWvhsMiXK-K3XnsLR5W-GByEJjLFBhuI6Ar-pDSTGeIISF'
 
           options = {
                   priority: "high",
@@ -63,7 +63,7 @@ class ParkingController < ApplicationController
     private
 
     def parking_params
-      params.require(:parking).permit(:id, :placa, :cedula, :fecha, :nombre, :zona_parqueo)
+      params.permit(:id, :placa, :cedula, :fecha, :nombre, :zona_parqueo)
     end
 
 end

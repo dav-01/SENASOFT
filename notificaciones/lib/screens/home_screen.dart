@@ -53,7 +53,7 @@ class HomeScreem extends StatelessWidget {
 
   //get 
   Future<List<Parking>> traerInformacionApi() async {
-  final url = Uri.parse('https://ad59-2803-1800-51c4-894e-c88a-5c16-d87a-93f6.ngrok.io/parking.json');
+  final url = Uri.parse('https://3548-2803-1800-51c4-894e-6a68-73d8-b0f0-e6c3.ngrok.io/parking.json');
   final response = await http.get(url);
   print(response);
   if (response.statusCode == 200) {
